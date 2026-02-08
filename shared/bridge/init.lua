@@ -37,7 +37,6 @@ local function DetectCore()
         return Config.Preferences.Core
     end
     if GetResourceState('qb-core') == 'started' then return 'qb' end
-    if GetResourceState('es_extended') == 'started' then return 'esx' end
     return 'qb'
 end
 
@@ -49,8 +48,6 @@ function Bridge.Init()
 
     if core == 'qb' then
         Bridge.Core = exports['qb-core']:GetCoreObject()
-    elseif core == 'esx' then
-        Bridge.Core = exports['es_extended']:getSharedObject()
     end
 
     Bridge.Inventory = inv
