@@ -1,18 +1,33 @@
 fx_version 'cerulean'
 game 'gta5'
-lua '54'
+lua54 'yes'
 
 author 'Panda'
 description 'CS-Blackmarket'
 
 shared_scripts {
-    'shared/*.lua',
+    'shared/config.lua',
+    'shared/bridge/init.lua',
+    'shared/bridge/notify.lua',
+    'shared/bridge/callback.lua',
+    'shared/bridge/inventory/init.lua',
+    'shared/bridge/inventory/ox.lua',
+    'shared/bridge/inventory/qb.lua',
 }
 
 server_scripts {
-    'server/*.lua',
+    '@oxmysql/lib/MySQL.lua',
+    'server/init.lua',
+    'server/main.lua',
 }
 
 client_scripts {
-    'client/*.lua',
+    'client/main.lua',
 }
+
+files {
+    "web/build/**",
+    "web/build/*",
+}
+
+ui_page "web/build/index.html"
